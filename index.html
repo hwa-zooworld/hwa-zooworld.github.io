@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width"/>
+	<title>zootopia misstion</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="src/jquery-1.11.3.min.js"></script>
+	<script src="src/swipe.js"></script>
+</head>
+<body>
+	<div class="wrap">
+	<h1 class="logo"><img src="images/logo.png" alt=""></h1>
+		<div class="zoo-wrap">
+			<div class="bullet">
+			<a href="#" class="on">Nick Wilde</a>
+			<a href="#">Judy Hopps</a>
+			<a href="#">Clawhauser</a>
+			<a href="#">Flash</a>
+			<a href="#">Mr.Big</a>
+			</div>
+			<div class="zoo swipe" id="SwipeOb">
+				<div class="swipe-wrap">
+					<div class="item"><img src="images/zootopia-01.png" alt="닉"></div>
+					<div class="item"><img src="images/zootopia-02.png" alt="주디"></div>
+					<div class="item"><img src="images/zootopia-03.png" alt="벤자민"></div>
+					<div class="item"><img src="images/zootopia-04.png" alt="플래쉬"></div>
+					<div class="item"><img src="images/zootopia-05.png" alt="미스터빅"></div>
+				</div>
+			</div>
+		</div>
+		<div class="zoo z-news">
+			<div class="flash"><img src="images/h1.gif" alt="벤자민 gif"></div>
+			<div class="bar"><h2>ZOOTOPIA NEWS</h2></div>
+			<div class="zootopia news">
+				<ul class="rolling">
+					<li><a href="http://stylem.mt.co.kr/styview.php?no=2016050215382814899&type=1">아이보다 어른이 집중하는 영화 &apos;주토피아&apos; 의 멋진 신세계</a></li>
+					<li><a href="http://www.cine21.com/news/view/mag_id/83981">[culture highway] 주디와 닉을 책으로 만나다</a></li>
+					<li><a href="http://www.yonhapnewstv.co.kr/tvscript/AKR20160504081300038/?did=2039m">[새 영화] &apos;주토피아&apos; 비켜…어린이날 접수한 애니메이션</a></li>
+					<li><a href="http://www.kookje.co.kr/news2011/asp/newsbody.asp?code=0500&key=20160504.99002090817">[어린이날 영화] &apos;주토피아&apos;부터 &apos;인생은 아름다워&apos;까지 풍성</a></li>
+					<li><a href="http://www.newstown.co.kr/news/articleView.html?idxno=248563">&apos;주토피아&apos; 제작자, 주디-닉이 이성친구로 발전? &quot;난 그런 생각 안 해&quot;</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+	//var elem=document.getElementById('SwipeOb')
+	//window.zooSwipe = new Swipe(elem,{});	
+		$(function(){
+		$('.control a').eq(0).on('click',function(){
+			zooSwipe.prev();
+		})
+		$('.control a').eq(1).on('click',function(){
+			zooSwipe.next();
+		})
+		window.zooSwipe = $('#SwipeOb').Swipe({
+			transitionEnd: function(index, element) {
+				$('.bullet a').eq(index).addClass('on').siblings().removeClass('on');
+			}
+		}).data('Swipe');
+	
+		$('.bullet a').on('click',function() {
+			//idx=$('.bullet a').index($(this));
+			idx=$(this).index();
+			window.zooSwipe.slide(idx,200);
+		});
+ 		function roll(){
+			$('.rolling').animate({top:-20},function(){
+				$('.rolling').css({top:0});
+				$('.rolling li').first().appendTo($('.rolling'));
+			})
+		}
+		setInterval(roll,3000)
+	})
+	</script>
+</body>
+</html>
