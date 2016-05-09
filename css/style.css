@@ -1,0 +1,33 @@
+body,div,h1,h2,ul,li{margin: 0;padding: 0;}
+	img{vertical-align: top;}
+	/*필수 시작*/
+		.swipe {overflow: hidden;visibility: hidden;position: relative;}
+		.swipe-wrap {overflow: hidden;position: relative;}
+		.swipe-wrap > div.item {float:left;width:100%;position: relative;}
+	/*필수 끝*/
+	.wrap{padding: 5px;}
+	.wrap:after{display: block;clear: both;content: '';}
+	.zoo{float: left;}
+	.zoo img{width: 100%;margin: 10px 0;}
+	.logo{text-align: center;padding: 20px 0;}
+	.logo img{height: 100px;}
+	.bar{position:relative;height:35px;background-color: #8FDE52;background-image:linear-gradient(to bottom,#8FDE52 0%,#45B2A9 100%);}
+	.bar h2{color: #fff;text-align: center;}
+	.news{background-color:#FFF;}
+	.news ul{list-style:none;padding:0 10px;}
+	.news ul li{padding:8px 0;border-bottom:1px solid #f2f2f2;}
+	.zootopia a{display:block;color:#333;text-decoration:none;text-indent:1em;
+	overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:16px;}
+	.bullet a{color: #777;text-decoration: none; text-align: center;padding: 13px;}
+	.bullet a.on{color: #45B2A9;font-weight: bolder;}
+	/*media query*/
+	@media screen and (max-width:767px){
+		.zoo{width: 100%;}
+	}
+	@media screen and (min-width:768px) and (max-width:1024px){
+		.zoo{width: 45%;margin: 0 10px;}
+	}
+	@media screen and (min-width:1025px){
+		.zoo{width: 45%;margin: 0 10px;}
+		.wrap{width:1024px;margin:0 auto;}
+	}
